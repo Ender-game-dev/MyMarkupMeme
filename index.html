@@ -6,14 +6,30 @@
     <title>Chilling Ender</title>
     <link rel="stylesheet" href="./style/main.css"> <!--I will leave this cuz idk your plans-->
     <link rel="stylesheet" href="./styles.css">
+    <script src="./light_modes.js" defer></script>
 </head>
 <body>
+    <img id="fnaf" src="./resources/night_mode.gif">
     <header>
         <h1>Chilling Ender</h1>
     </header>
     <div id="main-menu">
         <p>Hola queso</p>
     </div>
+    <article class="radio_container">
+        <span class="radio_light">
+            <label for="light">Light Mode</label>
+            <input type="radio" id="light" name="mode">
+        </span>
+        <span class="radio_dark">
+            <label for="dark">Dark Mode</label>
+            <input type="radio" id="dark" name="mode">
+        </span>
+        <span class="radio_night">
+            <label for="night">Night Mode</label>
+            <input type="radio" id="night" name="mode">
+        </span>
+    </article>
     <div id="info">
 
     </div>

@@ -18,8 +18,28 @@ header h1 {
 }
 
 body {
-    background: linear-gradient(to bottom, rgb(255, 255, 255) 60%, rgb(20, 20, 20) 100%);
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 85%, rgb(20, 20, 20) 100%);
     height: 100vh;
+}
+
+.radio_container {
+    position: relative;
+    float: right;
+    z-index: 2;
+    margin: 10px;
+    padding: 15px;
+    background-color: whitesmoke;
+    border: double 5px black;
+    display: flex;
+}
+
+.radio_container span {
+    display: grid;
+    margin-right: 10px;
+}
+
+input {
+    cursor: pointer;
 }
 
 footer {
@@ -30,4 +50,10 @@ footer {
     position: fixed;
     bottom: 0;
     text-align: end;
+}
+#fnaf {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
