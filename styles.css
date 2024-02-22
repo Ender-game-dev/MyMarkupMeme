@@ -49,8 +49,21 @@ footer {
     color: rgb(255, 255, 255);
     position: fixed;
     bottom: 0;
-    text-align: end;
 }
+
+.credits {
+    padding-left: 10px;
+}
+
+#my-link {
+    color: rgb(255, 255, 255);
+    pointer-events: auto;
+}
+
+#easter-egg {
+    float: inline-end;
+}
+
 #fnaf {
     display: none;
     position: absolute;

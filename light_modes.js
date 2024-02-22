@@ -22,6 +22,8 @@ lightMode.addEventListener("click", function() {
     document.querySelector(".radio_container").style.backgroundColor = "whitesmoke";
     document.querySelector(".radio_container").style.color = "black";
     document.querySelector(".radio_container").style.opacity = "1";
+    document.querySelector(".credits").style.color = "black";
+    document.querySelector("#my-link").style.color = "black";
     document.getElementById("fnaf").style.display = "none";
     resetAudio();
 });
@@ -40,6 +42,8 @@ darkMode.addEventListener("click", function() {
     document.querySelector(".radio_container").style.backgroundColor = "rgb(15, 15, 35)";
     document.querySelector(".radio_container").style.color = "rgb(255, 255, 255)";
     document.querySelector(".radio_container").style.opacity = "1";
+    document.querySelector(".credits").style.color = "white";
+    document.querySelector("#my-link").style.color = "white";
     document.getElementById("fnaf").style.display = "none";
     resetAudio();
 });
