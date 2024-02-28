@@ -11,23 +11,63 @@ const credit1 = document.getElementById("creditMe");
 const credit2 = document.getElementById("creditKapoloman");
 const radioContainer = document.querySelector(".radio_container");
 const fnaf = document.getElementById("fnaf");
+const jumpscare = document.getElementById("jumpscare");
 
 // Make an array of elements that are similarly styled
 const similarStyles = [header, footer, credit1, credit2];
 const pageDisplay = [header, main, footer];
 
-// Get Audio file
-const audio = new Audio("./resources/dont_pee_on_the_floor_use_the_comedor.mp3")
+// Get Audio file for music box
+const musicBox = new Audio("./resources/dont_pee_on_the_floor_use_the_comedor.mp3")
 
-// Function to play and stop audio
-function playAudio() {
-    audio.play();
-    audio.loop = true;
+// Function to play and stop audio for music box
+function playMusicBox() {
+    musicBox.play();
+    musicBox.loop = true;
 };
 
-function stopAudio() {
-    audio.pause();
-    audio.currentTime = 0;
+function stopMusicBox() {
+    musicBox.pause();
+    musicBox.currentTime = 0;
+};
+
+// Get Audio for jumpscare
+const jumpscareAudio = new Audio("./resources/jumpscareSFX.mp3")
+
+// Get time variable
+function getTimerForJumpscare() {
+    let timerBeforeJumpscare = Math.floor(Math.random()* 46)*1000;
+    if (timerBeforeJumpscare < 5000) {
+        return getTimerForJumpscare();
+    } else {
+        return timerBeforeJumpscare;
+    };
+};
+
+// Functions for the jumpscare
+function jumpscareVisible() {
+        jumpscare.style.display = "block";
+        stopMusicBox();
+        fnaf.style.display = "none";
+        jumpscareAudio.play();
+    };
+
+function stopAndHideJumpscare() {
+        jumpscare.style.display = "none";
+        jumpscareAudio.pause();
+        jumpscare.currentTime = 0;
+    };
+
+function playJumpscare() {
+    let timerForJumpscareIs = getTimerForJumpscare();
+    setTimeout(() => {
+        jumpscareVisible();
+    }, timerForJumpscareIs);
+    setTimeout(() => {
+        stopAndHideJumpscare();
+        radioDark.checked = "true"
+        switchToDark();
+    }, timerForJumpscareIs + 850);
 };
 
 //I styled the Radio Container individually since it needs a significant amount of styles
@@ -54,7 +94,7 @@ function nightContainer() {
 
 // Helper Function. It stops the audio and display the page, while hiding the fnaf element
 function nightModeOff() {
-    stopAudio();
+    stopMusicBox();
     pageDisplay.forEach(element => {
         element.style.display = "block";
     });
@@ -88,12 +128,13 @@ function switchToDark() {
 
 // Night
 function switchToNight() {
-    playAudio();
+    playMusicBox();
     nightContainer();
     pageDisplay.forEach(element => {
         element.style.display = "none";
     });
     fnaf.style.display = "block";
+    playJumpscare();
 };
 
 // Final Result
