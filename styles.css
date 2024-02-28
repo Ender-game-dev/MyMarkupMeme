@@ -74,3 +74,11 @@ footer {
     width: 100%;
     height: 100%;
 }
+
+#jumpscare {
+    z-index: 3;
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
